@@ -16,7 +16,7 @@ function UserCard() {
       setUsers((prev) => [...prev, ...data])
     );
   }, [page, query]);
-  console.log("arrayLangth", arrayLangth);
+
   const handelClick = () => {
     setPage((prevPage) => prevPage + 1);
     setTimeout(() => {
@@ -25,8 +25,6 @@ function UserCard() {
         behavior: "smooth",
       });
     }, 300);
-    console.log("first", users.length);
-    console.log("first", arrayLangth.length);
   };
   return (
     <>

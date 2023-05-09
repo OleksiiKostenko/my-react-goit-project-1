@@ -6,21 +6,23 @@ import css from "../Filter/Filter.module.css";
 import { useInputContex } from "../Hooks/Contex";
 
 function Filter() {
-  const { setQuery, setPage, arrayLangth, query, setUsers, setArrayLangth } =
-    useInputContex();
+  const { setPage, setUsers, setQuery, setArrayLangth } = useInputContex();
+
   useEffect(() => {
     getArrayLangth("").then((data) => setArrayLangth(data));
   }, []);
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
-    setUsers([]);
     setArrayLangth([]);
+    setUsers([]);
+    setQuery(e.target.value);
     setPage(1);
-    if (query === "all") {
+    if (e.target.value === "all") {
       getArrayLangth("").then((data) => setArrayLangth(data));
     }
-    getArrayLangth(query).then((data) => setArrayLangth(data));
+    if (e.target.value !== "all") {
+      getArrayLangth(e.target.value).then((data) => setArrayLangth(data));
+    }
   };
 
   return (
