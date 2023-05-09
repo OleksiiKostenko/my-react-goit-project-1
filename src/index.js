@@ -6,7 +6,7 @@ import { Context } from "./Component/Hooks/Contex";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/my-react-goit-project1">
+    <BrowserRouter basename="/my-react-goit-project-1">
       <Context>
         <App />
       </Context>
